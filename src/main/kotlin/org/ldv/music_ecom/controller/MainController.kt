@@ -14,4 +14,12 @@ class MainController {
         return "index"
     }
 
+    @GetMapping("/test_produits")
+    fun produits():String{
+        return "pagesVisiteur/test_produits"
+    }
+
+
+
+
 }
