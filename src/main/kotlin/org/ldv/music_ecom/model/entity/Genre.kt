@@ -1,14 +1,17 @@
 package org.ldv.music_ecom.model.entity
+
 import jakarta.persistence.*
 
 @Entity
-class Album(
+class Genre(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
-    var id: Long?,
-    var nom: String,
+    var id:Int?=null,
+    var title : String,
+    var pictureBaseUrl : String,
     var description : String
+
 
     ) {
 
