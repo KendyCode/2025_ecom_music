@@ -1,11 +1,13 @@
 package org.ldv.music_ecom.model.entity
 
+
+import jakarta.persistence.CascadeType
 import jakarta.persistence.Column
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
 import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
-import java.time.LocalDate
+import jakarta.persistence.OneToMany
 
 @Entity
 class User(
@@ -16,7 +18,14 @@ class User(
     var password : String,
     var email : String,
     var isAdmin : Boolean,
-    var Adress : String,
+    var adress : String,
+
+    @OneToMany(mappedBy = "user",cascade = [CascadeType.ALL], orphanRemoval = true)
+    var orders: MutableList<OrderTable> = mutableListOf(),
+
+    //Associaiton One to Many avec Comment
+    @OneToMany(mappedBy = "user", orphanRemoval = true)
+    var comments: MutableList<Comment> = mutableListOf(),
 
 
 
