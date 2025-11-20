@@ -19,6 +19,8 @@ class User(
     var email : String,
     var isAdmin : Boolean,
     var adress : String,
+    var nom : String,
+    var prenom : String,
 
     @OneToMany(mappedBy = "user",cascade = [CascadeType.ALL], orphanRemoval = true)
     var orders: MutableList<OrderTable> = mutableListOf(),
