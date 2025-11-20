@@ -15,7 +15,12 @@ class Product(
     var price : Double,
     var stock :Int,
     var realeaseDate : LocalDate,
-    var nbVente : Int
+    var nbVente : Int,
+
+    //Association avec Project (Product est le maitre de l'association)'
+    @ManyToOne
+    @JoinColumn(name = "project_id")
+    var project: Project? = null
 
     ) {
 

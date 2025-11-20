@@ -17,7 +17,11 @@ class Track (
     var diskNumber : Int,
     var rank : Int,
     var realeaseDate: String,
-    var preview : String
+    var preview : String,
+
+    //Association Many to Many avec Project
+    @ManyToMany(mappedBy = "tracks")
+    var projects: MutableList<Project> = mutableListOf()
 
 ) {
 }
