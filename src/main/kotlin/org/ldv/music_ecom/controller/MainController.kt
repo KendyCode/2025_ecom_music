@@ -30,7 +30,9 @@ class MainController {
         return "pagesVisiteur/login"
     }
 
-    @GetMapping("/music_ecom/profil")
+
+
+    @GetMapping("/music_ecom/profile")
     fun profile(authentication: Authentication): String {
 
         // Récupération des rôles (authorities) de l’utilisateur connecté

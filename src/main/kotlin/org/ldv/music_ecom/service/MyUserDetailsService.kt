@@ -23,18 +23,17 @@ class MyUserDetailsService(private val userDAO: UserDAO) : UserDetailsService {
              leRole = "ADMIN"
         }
         else{
-             leRole = "USER"
+             leRole = "CLIENT"
         }
 
-        val passwordEncoder = BCryptPasswordEncoder()
-        val rawPassword = user.password
-        val encodedPassword = passwordEncoder.encode(rawPassword)
+
 
         val userDetails: UserDetails =
             User.withUsername(user.email)         // .withUsername()
-                .password(encodedPassword)          // .password() (déjà encodé BCrypt!)
+                .password(user.password)          // .password() (déjà encodé BCrypt!)
                 .roles(leRole)            // .roles()
                 .build()
+
         return userDetails
     }
 

@@ -21,12 +21,14 @@ class SecurityConfig {
     @Bean
     fun filterChain(http: HttpSecurity): SecurityFilterChain {
         http.authorizeHttpRequests {
+            
             it.requestMatchers("/music_ecom", "/music_ecom/register", "/music_ecom/login", "/css/**", "/js/**", "/img/**", "/favicon.ico").permitAll()
+
 
                 // Autoriser l'accès pour les utilisateurs avec le rôle "ADMIN" à /admin/**
                 .requestMatchers("/music_ecom/admin/**").hasRole("ADMIN")
-                // Autoriser l'accès pour les utilisateurs avec le rôle "USER" à /user/**
-                .requestMatchers("/music_ecom/user/**").hasRole("USER")
+                // Autoriser l'accès pour les utilisateurs avec le rôle "CLIENT" à /client/**
+                .requestMatchers("/music_ecom/user/**").hasRole("CLIENT")
                 // Toutes les autres requêtes doivent être authentifiées
                 .anyRequest().authenticated()
 
@@ -34,7 +36,7 @@ class SecurityConfig {
             // Configuration du formulaire de connexion
             .formLogin { form: FormLoginConfigurer<HttpSecurity?> ->
                 form
-                    .loginPage("/music_ecom/login").defaultSuccessUrl("/e-kommerce/profil").failureUrl("/e-kommerce/login?error=true")
+                    .loginPage("/music_ecom/login").defaultSuccessUrl("/music_ecom/profile").failureUrl("/music_ecom/login?error=true")
                     .permitAll()
             }
 

@@ -33,7 +33,7 @@ class DataInitializerComponent (
             id = null,
             password = passwordEncoder.encode("admin123"), // mot de passe hashé
             email = "admin@admin.com",
-            isAdmin = false,
+            isAdmin = true,
             adress = "Rue du couchant",
             nom = "Super",
             prenom = "Admin")
@@ -42,13 +42,14 @@ class DataInitializerComponent (
             id = null,
             password = passwordEncoder.encode("client123"), // mot de passe hashé
             email = "client@client.com",
-            isAdmin = true,
+            isAdmin = false,
             adress = "Boulevard Saint Léonard",
             nom = "Jean",
             prenom = "Client",
 
 
         )
+
         userDAO.saveAll(listOf(admin, client))
 
 
