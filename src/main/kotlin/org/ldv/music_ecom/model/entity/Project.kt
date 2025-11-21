@@ -1,6 +1,5 @@
 package org.ldv.music_ecom.model.entity
 import jakarta.persistence.*
-import org.hibernate.mapping.Join
 import java.time.LocalDate
 
 @Entity
@@ -24,14 +23,20 @@ class Project(
     @OneToMany(mappedBy = "project",cascade = [CascadeType.ALL], orphanRemoval = true)
     var products: MutableList<Product> = mutableListOf(),
 
-    // Association Many to Many avec Track
-    @ManyToMany
-    @JoinTable(
-        name = "project_tracks",
-        joinColumns = [JoinColumn(name = "project_id")],
-        inverseJoinColumns = [JoinColumn(name = "track_id")]
-    )
-    var tracks: MutableList<Track> = mutableListOf()
+    //Associaiton One to Many avec PositionAsso
+    @OneToMany(mappedBy = "project", orphanRemoval = true)
+    var positionAssos: MutableList<PositionAsso> = mutableListOf(),
+
+    // Réflexive : projet original
+    @ManyToOne
+    @JoinColumn(name = "original_project_id")
+    var originalProject: Project? = null,
+
+    // Réflexive : projets dérivés
+    @OneToMany(mappedBy = "originalProject", cascade = [CascadeType.ALL], orphanRemoval = true)
+    var derivedProjects: MutableList<Project> = mutableListOf()
+
+
 
 
 

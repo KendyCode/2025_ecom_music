@@ -13,15 +13,19 @@ class Track (
     var titleShort : String,
     var isrc : String,
     var duration : Int,
-    var trackPosition : Int,
-    var diskNumber : Int,
     var rank : Int,
     var realeaseDate: String,
     var preview : String,
 
-    //Association Many to Many avec Project
-    @ManyToMany(mappedBy = "tracks")
-    var projects: MutableList<Project> = mutableListOf()
+    //Associaiton One to Many avec PositionAsso
+    @OneToMany(mappedBy = "track", orphanRemoval = true)
+    var positionAssos: MutableList<PositionAsso> = mutableListOf(),
 
-) {
+    //Associaiton One to Many avec TrackPersonRole
+    @OneToMany(mappedBy = "track", orphanRemoval = true)
+    var trackPersonRoles: MutableList<TrackPersonRole> = mutableListOf(),
+
+
+
+    ) {
 }
