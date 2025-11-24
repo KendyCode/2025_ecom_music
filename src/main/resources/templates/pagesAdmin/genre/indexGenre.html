@@ -1,0 +1,42 @@
+<!doctype html>
+<html th:replace="base :: html" lang="fr" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="content">
+    <main class="py-5">
+        <div class="container">
+            <h1 class="mb-5 text-center">Gestion des Genres</h1>
+            <p>Nombre de Genres : <span th:text="${genres.size()}"></span></p>
+            <a href="" class="btn btn-success"> + Genre</a>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Picture</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="genre : ${genres}">
+                    <td th:text="${genre.id}"></td>
+                    <td th:text="${genre.title}"></td>
+                    <td th:text="${genre.pictureBaseUrl}"></td>
+                    <td th:text="${genre.description}"></td>
+                    <td >
+                        <a th:href="@{'/music-ecom/admin/genres/'+${genre.id}}" class="btn btn-primary">Afficher</a>
+                        <a href="" class="btn btn-warning">Modifier</a>
+                        
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            
+            
+
+
+        </div>
+    </main>
+</div>
+
+
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html th:replace="base :: html" lang="fr" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="content">
+  <main class="py-5">
+    <div class="container">
+      <h1 class="mb-5 text-center" th:text="${genre.title}"></h1>
+      <div class="row">
+            <div class="col">
+              
+              <img th:src="${genre.pictureBaseUrl}">
+
+            </div>
+        <div class="col">
+          <ul>
+            <li>Tilte : <span th:text="${genre.title}"></span></li>
+            <li>Picture : <span th:text="${genre.pictureBaseUrl}"></span></li>
+            <li>Description : <span th:text="${genre.description}"></span> </li>
+            <li></li>
+          </ul>
+          <div class="btn-group">
+            <a th:href="@{/music-ecom/admin/genres}" class="btn btn-secondary">Retour</a>
+            <a href="" class="btn btn-primary">Modifier</a>
+            <a href="" class="btn btn-danger">Supprimer</a>
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+
+    </div>
+  </main>
+</div>
+
+
+</html>

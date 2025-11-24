@@ -17,9 +17,24 @@ class DataInitializer (
         }
         println("🚀 Initialisation des données...")
 
-        val genreRap = Genre(pictureBaseUrl = "https://cdn-images.dzcdn.net//images//misc//5c27115d3b797954afff59199dad98d1//1000x1000-000000-80-0-0.jpg", description = "C'est le best", title = "Rap")
+        val genreRap = Genre(
+            pictureBaseUrl = "https://cdn-images.dzcdn.net//images//misc//5c27115d3b797954afff59199dad98d1//500x500-000000-80-0-0.jpg",
+            description = "C'est le best",
+            title = "Rap"
+        )
 
-        genreDAO.save(genreRap)
+        val genrePop = Genre(
+            pictureBaseUrl = "https://cdn-images.dzcdn.net//images//misc//5c271//1000x1000-000000-80-0-0.jpg",
+            description = "C'est la pop",
+            title = "Pop"
+        )
+
+        val genreRock = Genre(
+            pictureBaseUrl = "https:b797954afff59199dad98d1//1000x1000-000000-80-0-0.jpg",
+            description = "C'est Rock n roll",
+            title = "Rock"
+        )
+        genreDAO.saveAll(listOf(genreRap,genrePop,genreRock))
 
     }
 
