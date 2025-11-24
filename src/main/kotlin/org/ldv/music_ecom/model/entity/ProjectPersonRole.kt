@@ -5,33 +5,26 @@ import jakarta.persistence.Entity
 import jakarta.persistence.JoinColumn
 import jakarta.persistence.ManyToOne
 import jakarta.persistence.MapsId
-import java.time.LocalDate
 
 @Entity
-class Comment (
+class ProjectPersonRole(
     @EmbeddedId
-    var commentId: CommentId? = null,
-
-    @MapsId("userId")
-    @ManyToOne
-    @JoinColumn(name="user_id")
-    var user: User? = null,
+    var projectPersonRoleId: ProjectPersonRoleId? = null,
 
     @MapsId("projectId")
     @ManyToOne
     @JoinColumn(name="project_id")
-    var project: Project? = null,
+    var track: Track? = null,
 
-    var content: String,
-    var rating: Int,
-    var commentDate: LocalDate,
+    @MapsId("personId")
+    @ManyToOne
+    @JoinColumn(name="person_id")
+    var person: Person? = null,
 
-
-
-    )
-
-{
-
-
+    @MapsId("roleId")
+    @ManyToOne
+    @JoinColumn(name="role_id")
+    var role: Role? = null,
+) {
 
 }

@@ -10,8 +10,11 @@ class Genre(
     var id:Int?=null,
     var title : String,
     var pictureBaseUrl : String,
-    var description : String
+    var description : String,
 
+    //Association avec Project
+    @OneToMany(mappedBy = "genre",cascade = [CascadeType.ALL], orphanRemoval = true)
+    var projects: MutableList<Project> = mutableListOf(),
 
     ) {
 

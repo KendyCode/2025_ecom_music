@@ -21,6 +21,8 @@ class CommandLine(
     @JoinColumn(name="product_id")
     var product: Product? = null,
 
+    var quantity: Int
+
 
 ) {
 }

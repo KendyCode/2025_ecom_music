@@ -23,29 +23,29 @@ class MainController {
         return "pagesVisiteur/test_produits"
     }
 
-    @GetMapping("/music_ecom/login")
-    fun login(@RequestParam error: Boolean?, model: Model): String {
-        // Ajoute un attribut "error" au modèle si la requête contient une erreur
-        model.addAttribute("error", error == true)
-        return "pagesVisiteur/login"
-    }
-
-
-
-    @GetMapping("/music_ecom/profile")
-    fun profile(authentication: Authentication): String {
-
-        // Récupération des rôles (authorities) de l’utilisateur connecté
-        val roles = authentication.authorities.map { it.authority }
-
-        // Si l'utilisateur est admin → redirection
-        if ("ROLE_ADMIN" in roles) {
-            return "redirect:/music_ecom/admin/dashboard"
-        }
-
-        // Sinon → on affiche la page profile
-        return "pagesClient/profile"
-    }
+//    @GetMapping("/music_ecom/login")
+//    fun login(@RequestParam error: Boolean?, model: Model): String {
+//        // Ajoute un attribut "error" au modèle si la requête contient une erreur
+//        model.addAttribute("error", error == true)
+//        return "pagesVisiteur/login"
+//    }
+//
+//
+//
+//    @GetMapping("/music_ecom/profile")
+//    fun profile(authentication: Authentication): String {
+//
+//        // Récupération des rôles (authorities) de l’utilisateur connecté
+//        val roles = authentication.authorities.map { it.authority }
+//
+//        // Si l'utilisateur est admin → redirection
+//        if ("ROLE_ADMIN" in roles) {
+//            return "redirect:/music_ecom/admin/dashboard"
+//        }
+//
+//        // Sinon → on affiche la page profile
+//        return "pagesClient/profile"
+//    }
 
 
 
