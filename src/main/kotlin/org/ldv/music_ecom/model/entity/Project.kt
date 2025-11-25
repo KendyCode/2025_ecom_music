@@ -10,7 +10,7 @@ class Project(
     var id:Int?=null,
     var title : String,
     var coverBaseUrl : String,
-    var explicitLyricId : Int,
+    var explicitLyric : Boolean,
     var description : String,
     var realeaseDate : LocalDate,
 

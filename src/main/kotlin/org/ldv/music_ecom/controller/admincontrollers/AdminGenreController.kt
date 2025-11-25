@@ -26,8 +26,10 @@ class AdminGenreController(val genreDAO: GenreDAO) {
     }
 
     @GetMapping("music-ecom/admin/genres/create")
-    fun create(model:Model){
+    fun create(model:Model): String{
         var newGenre = Genre(title = "", description = "", pictureBaseUrl = "")
+        return "pagesAdmin/genre/showGenre"
+
     }
 
 

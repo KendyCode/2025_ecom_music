@@ -1,0 +1,44 @@
+<!doctype html>
+<html th:replace="base :: html" lang="fr" xmlns:th="http://www.thymeleaf.org">
+<div th:fragment="content">
+    <main class="py-5">
+        <div class="container">
+            <h1 class="mb-5 text-center">Gestion des Projects</h1>
+            <p>Nombre de Projects : <span th:text="${projects.size()}"></span></p>
+            <a href="" class="btn btn-success"> + Project</a>
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Cover</th>
+                    <th>Explicit</th>
+                    <th>Realease Date</th>
+                    <th>Genre</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="project : ${projects}">
+                    <td th:text="${projects.id}"></td>
+                    <td th:text="${projects.title}"></td>
+                    <td th:text="${projects.coverBaseUrl}"></td>
+                    <td th:text="${projects.explicitLyric}"></td>
+                    <td th:text="${projects.realeaseDate}"></td>
+                    <td >
+                        <a th:href="@{'/music-ecom/admin/genres/'+${project.id}}" class="btn btn-primary">Afficher</a>
+                        <a href="" class="btn btn-warning">Modifier</a>
+
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+
+
+
+        </div>
+    </main>
+</div>
+
+
+</html>
